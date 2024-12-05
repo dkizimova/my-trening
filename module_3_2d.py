@@ -14,17 +14,11 @@ def send_email(message, recipient, *, sender ='university.help@gmail.com' ):#a-m
     if any(map(send_rep,(sender, recipient))):
         return print("Нельзя отправить письмо самому себе!")
 
-    def correct_send(email):
-        if sender == 'university.help@gmail.com':
-            return True
-        return False
-    if any(map(correct_send,(sender, recipient))):
-        print("Письмо успешно отправлено с адреса", sender, "на адрес", recipient, ".")
-    else:
-        print("Нестандартный отправитель! Письмо отправлено с адреса", sender, "на адрес", recipient, ".")
-
-
-
+    if sender == 'university.help@gmail.com':
+        print('Письмо успешно отправлено с адреса ', sender, ' на адрес', recipient, '.')
+        #break
+    elif sender != 'university.help@gmail.com':
+        print('Нестандартный отправитель! Письмо отправлено с адреса ', sender, 'на адрес', recipient, '.')
 
 send_email("hello", "alex@mail.ru", sender="university.help@gmail.com")
 send_email('back', "dikimail.com")
